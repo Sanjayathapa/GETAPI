@@ -35,20 +35,28 @@ class _UserListState extends State<UserList> {
             itemBuilder: (context, index) {
               final user = usersList[index];
               return Card(
-             child: ListTile(
-                title: Text(user.name),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Email: ${user.email}'),
-                    Text('Street: ${user.address.street}'),
-                    Text('Suite: ${user.address.suite}'),
-                    Text('City: ${user.address.city}'),
-                    Text('Zipcode: ${user.address.zipcode}'),
-                    Text('Geo: Lat ${user.address.geo.lat}, Lng ${user.address.geo.lng}'),
-                  ],
+                
+             child: Container(
+              color: const Color.fromARGB(255, 245, 201, 253),
+               child: ListTile(
+                  title: Text(user.name),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Email: ${user.email}'),
+                      Text('Street: ${user.address.street}'),
+                      Text('Suite: ${user.address.suite}'),
+                      Text('City: ${user.address.city}'),
+                      Text('Zipcode: ${user.address.zipcode}'),
+                      Text('Geo: Lat ${user.address.geo.lat}, Lng ${user.address.geo.lng}'),
+                    ],
+                  ),
+                   trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () => deleteUser(user.id),
+                    ),
                 ),
-              ));
+             ));
             },
           );
         }

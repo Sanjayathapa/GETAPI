@@ -17,3 +17,12 @@ Future<List<User>> fetchUsers() async {
     throw Exception('Failed to fetch data: $e');
   }
 }
+ Future<void> deleteUser(int userId) async {
+    try {
+   
+      print('Deleting user with ID: $userId');
+    
+    } catch (e) {
+      print('Failed to delete user: $e');
+    }
+  }
